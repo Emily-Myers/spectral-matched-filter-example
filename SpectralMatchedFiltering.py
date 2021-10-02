@@ -52,7 +52,10 @@ green_target_roi_image = green_target_roi.get('green_target')
 Perform Empirical Line Method (ELM) to convert green panel reflectance to radiance
 """
 # Perform linear regression between bright object (aluminum panel) and dark object
-# (black panel) in scene to obtain a relation between radiance and reflectance
+# (black panel) in scene to obtain a relation between radiance and reflectance.
+# This is necessary because the signal we are looking for (green panel) is
+# currently given in reflectance units while the image is in radiance units.
+# We need them to match in order to perform SMF.
 
 # Initialize variables
 L1 = image[:,185-1,280-1]   # aluminum panel radiance
@@ -104,7 +107,7 @@ for i in range(0,y_size*x_size):
 
 # Reshape r_SMF_green to match original image dimensions
 r_SMF_green = r_SMF_green.reshape(y_size,x_size)
-    
+
 # Plot the results (brighter means higher spectral match)
 plt.imshow(r_SMF_green)
 plt.show()
