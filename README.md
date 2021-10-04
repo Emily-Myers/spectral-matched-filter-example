@@ -12,5 +12,5 @@ Implementation of the global spectral matched filter (SMF) algorithm to detect a
 ## Notes
 
 * This code was written to work with a specific image, but could easily be modified to work with other data. To perform SMF, all that is needed is an image that can be read into a numpy array and a corresponding signal spectrum to attempt to detect within the image. To calculate detection and false alarm probabilities, ground truth information for the image is also needed.
-* Was originally implemented using matplotlib version 3.4.3, numpy version 1.19.3, and scipy version 1.7.1
+* Was implemented using matplotlib version 3.4.3, numpy version 1.19.3, and scipy version 1.7.1
 * The equation for SMF was taken from equation 14.79 in *Hyperspectral Remote Sensing* by Michael T. Eismann.
